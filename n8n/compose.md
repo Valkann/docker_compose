@@ -1,7 +1,9 @@
 # n8n Docker Compose
 
 ## Note
-Values in [] are the values you need to replace with your own information.
+
+- Values in [] are the values you need to replace with your own information.
+- You need a reverse proxy configuration to access your password manager from the outside.
 
 ## Create Folders
 - [ROOT_FOLDER]/n8n
