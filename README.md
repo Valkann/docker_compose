@@ -2,7 +2,7 @@
 
 A list of the various Docker Compose projects I'm mounting on my Synology NAS. 
 
-- [n8n]()
+- [n8n](./n8n/compose.md) : Automation platform
 - Vaulwarden
 - [WIP]Wallabag
 

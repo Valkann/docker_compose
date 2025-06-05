@@ -14,6 +14,7 @@ Be sure taht the `node` user is OWNER of the Folder.
 
 
 ## Code
+
 ```
 services:
   n8n:
@@ -36,3 +37,5 @@ services:
       - [ROOT_FOLDER]/n8n:/home/node/.n8n
       - [ROOT_FOLDER]/n8n/local-files:/files
 ```
+## File
+- [compose.yaml](./compose.yaml)
