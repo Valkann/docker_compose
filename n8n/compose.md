@@ -1,14 +1,14 @@
 # n8n Docker Compose
 
 ## Note
-Values in [] are tha values you need to replace with your own informations.
+Values in [] are the values you need to replace with your own information.
 
 ## Create Folders
 - [ROOT_FOLDER]/n8n
 - [ROOT_FOLDER]/n8n/local-files
 
 ## Permisions
-Be sure taht the `node` user is OWNER of the Folder. 
+Be sure that the `node` user is OWNER of the Folder. 
 
 `sudo chown -R 1000:1000 [ROOT_FOLDER] /n8n/`
 
