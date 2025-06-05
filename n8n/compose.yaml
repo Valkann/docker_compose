@@ -10,14 +10,14 @@ services:
     container_name: n8n-automation-platform
     restart: always
     ports:
-      - "0.0.0.0:[PORT NAS ACCESSIBLE]:5678"
+      - "0.0.0.0:[NAS PORT]:5678"
     environment:
       - N8N_HOST=0.0.0.0
       - N8N_PORT=5678
       - N8N_PROTOCOL=https
       - NODE_ENV=production
-      - WEBHOOK_URL=[URL EXTERNE]
-      - N8N_EDITOR_BASE_URL=[URL EXTERNE]
+      - WEBHOOK_URL=[EXTERNAL URL]
+      - N8N_EDITOR_BASE_URL=[EXTERNAL URL]
       - N8N_RUNNERS_ENABLED=false
       - GENERIC_TIMEZONE=[TIMEZONE example: Europe/Paris]
       - N8N_SECURE_COOKIE=false
