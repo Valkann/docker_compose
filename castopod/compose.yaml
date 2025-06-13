@@ -1,0 +1,57 @@
+services:
+  app:
+    image: castopod/castopod:latest
+    #cp-install pour créer le super user
+    #cp-admin pour le backend
+    container_name: "castopod-app"
+    volumes:
+      - castopod-media:/var/www/castopod/public/media
+    environment:
+      MYSQL_DATABASE: castopod
+      MYSQL_USER: castopod
+      MYSQL_PASSWORD: changeme
+      CP_BASEURL: "http://localhost:8000"
+      # on enlève le https pour le test en local
+      CP_DISABLE_HTTPS: 1
+      CP_ANALYTICS_SALT: changeme
+      CP_CACHE_HANDLER: redis
+      CP_REDIS_HOST: redis
+      CP_REDIS_PASSWORD: changeme
+    networks:
+      - castopod-app
+      - castopod-db
+    ports:
+      - 8000:8000
+    restart: unless-stopped
+
+  mariadb:
+    image: mariadb:10.5
+    container_name: "castopod-mariadb"
+    networks:
+      - castopod-db
+    volumes:
+      - castopod-db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: changeme
+      MYSQL_DATABASE: castopod
+      MYSQL_USER: castopod
+      MYSQL_PASSWORD: changeme
+    restart: unless-stopped
+
+  redis:
+    image: redis:7.0-alpine
+    container_name: "castopod-redis"
+    command: --requirepass changeme
+    volumes:
+      - castopod-cache:/data
+    networks:
+      - castopod-app
+
+volumes:
+  castopod-media:
+  castopod-db:
+  castopod-cache:
+
+networks:
+  castopod-app:
+  castopod-db:
